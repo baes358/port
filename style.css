@@ -2,6 +2,18 @@
     font-family: 'Calder';
     src: url('./fonts/Calder-LC.otf') format('opentype');
 }
+@font-face {
+    font-family: 'Din';
+    src: url('./fonts/D-DIN.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Din-Bold';
+    src: url('./fonts/D-DIN-Bold.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Din-Italic';
+    src: url('./fonts/D-DIN-Italic.otf') format('opentype');
+}
 
 *,
 *::before,
@@ -12,11 +24,12 @@
 }
 
 :root {
-    --ink:       #1a1f3a;
-    --ink-light: #3a4060;
-    --ink-faint: #8890b0;
-    --cream:     #f7f6f2;
-    --accent:    #c8cce0;
+    --bg:        #ffffff;
+    --ink:       #050505;
+    --ink-light: #4a4a4a;
+    --ink-faint: #9a9a9a;
+    --accent:    #ff3366;
+    --border:    #000000;
 }
 
 html {
@@ -26,9 +39,9 @@ html {
 }
 
 body {
-    background: var(--cream);
+    background: var(--bg);
     color: var(--ink);
-    font-family: 'Calder', sans-serif;
+    font-family: 'Din', sans-serif;
     /* 11px */
     font-size: 1.1rem;       
     letter-spacing: 0.04em;
@@ -36,7 +49,7 @@ body {
 }
 
 
-/* NAV  (mobile base) */
+/* NAV  (mobile base) – brutalist bar */
 nav {
     position: fixed;
     top: 0; 
@@ -46,15 +59,9 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 1rem 1rem;
-    /* mix-blend-mode: multiply; */
-
-    /* backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px); */
-    background: linear-gradient(
-    to bottom,
-    rgba(247, 246, 242, 0.85) 60%,
-    rgba(247, 246, 242, 0.0) 100%);
+    padding: 1rem 1.4rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
 }
 
 .nav-tagline {
@@ -87,22 +94,22 @@ nav {
 }
 
 .nav-links a {
-    border: 0.1rem solid var(--ink);
-    border-radius: 2rem;
+    border: 0.12rem solid var(--ink);
+    border-radius: 0;
     padding: 0.4rem 1.2rem;
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.15s ease-out, color 0.15s ease-out;
 }
 
 .nav-links a:hover {
     background: var(--ink);
-    color: var(--cream);
+    color: var(--bg);
 }
 
 .nav-social {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.2rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
 }
 
 .nav-social a {
@@ -122,14 +129,15 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: end;
-    padding: 9rem 2rem 4rem;
+    justify-content: flex-end;
+    padding: 7.5rem 2rem 4rem;
     position: relative;
+    border-bottom: 1px solid var(--border);
 }
 
 .hero-name-wrap {
-    width: 100vw;
-    /* max-width: 90rem; */
+    width: 100%;
+    max-width: 90rem;
     position: relative;
 }
 
@@ -166,8 +174,8 @@ nav {
 }
 
 .btn-outline {
-    border: 0.1rem solid var(--ink);
-    border-radius: 2.4rem;
+    border: 0.12rem solid var(--ink);
+    border-radius: 0;
     padding: 0.8rem 2.4rem;
     font-family: 'Calder', sans-serif;
     font-size: 1rem;
@@ -176,12 +184,12 @@ nav {
     color: var(--ink);
     background: transparent;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.15s ease-out, color 0.15s ease-out;
 }
 
 .btn-outline:hover {
     background: var(--ink);
-    color: var(--cream);
+    color: var(--bg);
 }
 
 .scroll-hint {
@@ -194,7 +202,7 @@ nav {
 
 /* ABOUT  (mobile base — single column) */
 .about {
-    padding: 6rem 2rem;
+    padding: 5rem 2rem;
     max-width: 82rem;
     margin: 0 auto;
     display: grid;
@@ -214,10 +222,10 @@ nav {
 .about-photo-wrap {
     width: 16rem;
     height: 16rem;
-    border-radius: 50%;
+    border-radius: 0;
     overflow: hidden;
     flex-shrink: 0;
-    background: var(--accent);
+    background: #f5f5f5;
     /* center on mobile */
     margin: 0 auto;          
 }
@@ -288,7 +296,7 @@ nav {
 
 /* FUN SECTION  (mobile base — stacked flex) */
 .fun-section {
-    padding: 6rem 2rem 8rem;
+    padding: 5rem 2rem 8rem;
     max-width: 82rem;
     margin: 0 auto;
     position: relative;
@@ -353,7 +361,7 @@ nav {
 
 /* CONNECT  (mobile base) */
 .connect-section {
-    padding: 6rem 2rem 8rem;
+    padding: 5rem 2rem 8rem;
     text-align: center;
     opacity: 0;
     transform: translateY(2rem);
@@ -383,7 +391,7 @@ nav {
 
 /* FOOTER  (mobile base) */
 footer {
-    border-top: 0.1rem solid var(--accent);
+    border-top: 0.12rem solid var(--border);
     padding: 2rem;
     display: flex;
     justify-content: space-between;
