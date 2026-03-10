@@ -22,6 +22,8 @@ window.addEventListener('scroll', () => {
     }
 });
 
+
+// for hero hover
 const heroImg = document.querySelector('.hero-name-wrap img');
 const defaultSrc = './assets/Asset 1.png';
 const hoverSrc   = './assets/Asset 8.png';
