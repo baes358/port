@@ -63,13 +63,17 @@ nav {
     background: var(--bg);
     border-bottom: 1px solid var(--border);
 }
+nav img{
+    width:5rem;
+}
 
 .nav-tagline {
     font-size: 0.9rem;
     line-height: 1.7;
     color: var(--ink-light);
     text-transform: uppercase;
-    max-width: 16rem;
+    max-width: 20rem;
+    text-wrap: pretty;
 }
 
 .nav-right {
@@ -88,7 +92,7 @@ nav {
 .nav-social a {
     text-decoration: none;
     color: var(--ink);
-    font-family: 'Calder', sans-serif;
+    font-family: 'Din', sans-serif;
     font-size: 0.9rem;
     text-transform: uppercase;
 }
@@ -177,7 +181,7 @@ nav {
     border: 0.12rem solid var(--ink);
     border-radius: 0;
     padding: 0.8rem 2.4rem;
-    font-family: 'Calder', sans-serif;
+    font-family: 'Din', sans-serif;
     font-size: 1rem;
     text-transform: uppercase;
     text-decoration: none;
@@ -245,7 +249,7 @@ nav {
 }
 
 .about-name {
-    font-family: 'Calder', sans-serif;
+    font-family: 'Din', sans-serif;
     font-size: 1.3rem;
     text-transform: uppercase;
     color: var(--ink);
@@ -374,7 +378,7 @@ nav {
 }
 
 .connect-title {
-    font-family: 'Calder', sans-serif;
+    font-family: 'Din', sans-serif;
     font-size: 2rem;
     text-transform: uppercase;
     color: var(--ink);
