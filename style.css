@@ -3,16 +3,16 @@
     src: url('./fonts/Calder-LC.otf') format('opentype');
 }
 @font-face {
-    font-family: 'Din';
-    src: url('./fonts/D-DIN.otf') format('opentype');
+    font-family: 'Calder';
+    src: url('./fonts/D-Calder.otf') format('opentype');
 }
 @font-face {
-    font-family: 'Din-Bold';
-    src: url('./fonts/D-DIN-Bold.otf') format('opentype');
+    font-family: 'Calder-Bold';
+    src: url('./fonts/D-Calder-Bold.otf') format('opentype');
 }
 @font-face {
-    font-family: 'Din-Italic';
-    src: url('./fonts/D-DIN-Italic.otf') format('opentype');
+    font-family: 'Calder-Italic';
+    src: url('./fonts/D-Calder-Italic.otf') format('opentype');
 }
 
 *,
@@ -41,7 +41,7 @@ html {
 body {
     background: var(--bg);
     color: var(--ink);
-    font-family: 'Din', sans-serif;
+    font-family: 'Calder', sans-serif;
     /* 11px */
     font-size: 1.1rem;       
     letter-spacing: 0.04em;
@@ -58,22 +58,35 @@ nav {
     z-index: 100;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     padding: 1rem 1.4rem;
     background: var(--bg);
     border-bottom: 1px solid var(--border);
 }
-nav img{
-    width:5rem;
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 0.1rem solid var(--ink);
+    font-size: 0.85rem;
+    font-weight: 300;
 }
 
 .nav-tagline {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: var(--ink-light);
+    font-size: 0.75rem;
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--ink);
     text-transform: uppercase;
-    max-width: 20rem;
-    text-wrap: pretty;
+    letter-spacing: 0.2em;
 }
 
 .nav-right {
@@ -92,15 +105,17 @@ nav img{
 .nav-social a {
     text-decoration: none;
     color: var(--ink);
-    font-family: 'Din', sans-serif;
-    font-size: 0.9rem;
+    font-family: 'Calder', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
     text-transform: uppercase;
+    letter-spacing: 0.18em;
 }
 
 .nav-links a {
-    border: 0.12rem solid var(--ink);
+    border: 0.1rem solid var(--ink);
     border-radius: 0;
-    padding: 0.4rem 1.2rem;
+    padding: 0.5rem 1rem;
     transition: background 0.15s ease-out, color 0.15s ease-out;
 }
 
@@ -129,14 +144,38 @@ nav img{
 
 /* HERO  (mobile base) */
 .hero {
-    min-height: 100vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    padding: 7.5rem 2rem 4rem;
+    justify-content: center;
+    padding: 8rem 2rem 5rem;
     position: relative;
     border-bottom: 1px solid var(--border);
+    text-align: center;
+}
+
+.hero-display {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 12vw, 7rem);
+    font-weight: 300;
+    font-style: italic;
+    color: transparent;
+    -webkit-text-stroke: 0.04em var(--ink);
+    text-stroke: 0.04em var(--ink);
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.6rem;
+}
+
+.hero-subtext {
+    max-width: 32rem;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--ink);
+    text-transform: none;
+    letter-spacing: 0.02em;
 }
 
 .hero-name-wrap {
@@ -148,13 +187,11 @@ nav img{
 .hero-name-wrap img {
     content: url('./assets/Asset 1.png');
     transition: opacity 0.3s ease, filter 0.3s ease;
-
 }
 
 .hero-name-wrap img:hover {
     content: url('./assets/Asset 8.png');
 }
-
 
 .hero-cta {
     margin-top: 3.2rem;
@@ -177,11 +214,70 @@ nav img{
     }
 }
 
+/* PROJECT BLOCKS — 1 large + 2 small, dark grey */
+.project-blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0;
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+.project-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 18rem;
+    padding: 2rem;
+    background: #333333;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.project-block:hover {
+    background: var(--ink);
+    color: var(--bg);
+}
+
+.project-block--large {
+    grid-column: 1 / -1;
+    min-height: 14rem;
+}
+
+.project-block--small {
+    min-height: 16rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.project-block--small:first-of-type {
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.project-block-label {
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    .project-blocks {
+        grid-template-columns: 1fr;
+    }
+    .project-block--small:first-of-type {
+        border-right: none;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+}
+
 .btn-outline {
     border: 0.12rem solid var(--ink);
     border-radius: 0;
     padding: 0.8rem 2.4rem;
-    font-family: 'Din', sans-serif;
+    font-family: 'Calder', sans-serif;
     font-size: 1rem;
     text-transform: uppercase;
     text-decoration: none;
@@ -249,7 +345,7 @@ nav img{
 }
 
 .about-name {
-    font-family: 'Din', sans-serif;
+    font-family: 'Calder', sans-serif;
     font-size: 1.3rem;
     text-transform: uppercase;
     color: var(--ink);
@@ -378,7 +474,7 @@ nav img{
 }
 
 .connect-title {
-    font-family: 'Din', sans-serif;
+    font-family: 'Calder', sans-serif;
     font-size: 2rem;
     text-transform: uppercase;
     color: var(--ink);

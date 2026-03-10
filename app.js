@@ -13,41 +13,41 @@ document.querySelectorAll('.about, .fun-section, .connect-section').forEach(el =
     observer.observe(el);
 });
 
-// Gentle parallax on hero signature
-window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    const heroEl = document.querySelector('.hero-name-wrap');
-    if (heroEl && scrolled < window.innerHeight) {
-        heroEl.style.transform = `translateY(${scrolled * 0.12}px)`;
-    }
-});
+// Gentle parallax on hero signature (only if hero-name-wrap exists)
+const heroWrap = document.querySelector('.hero-name-wrap');
+if (heroWrap) {
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        if (scrolled < window.innerHeight) {
+            heroWrap.style.transform = `translateY(${scrolled * 0.12}px)`;
+        }
+    });
+}
 
-
-// for hero hover
+// Hero image hover (only if hero image exists)
 const heroImg = document.querySelector('.hero-name-wrap img');
-const defaultSrc = './assets/Asset 1.png';
-const hoverSrc   = './assets/Asset 8.png';
+if (heroImg) {
+    const defaultSrc = './assets/Asset 1.png';
+    const hoverSrc   = './assets/Asset 8.png';
+    new Image().src = hoverSrc;
 
-new Image().src = hoverSrc;
+    heroImg.addEventListener('mouseenter', () => {
+        heroImg.style.opacity = '0';
+        heroImg.style.filter  = 'blur(8px)';
+        setTimeout(() => {
+            heroImg.src = hoverSrc;
+            heroImg.style.opacity = '1';
+            heroImg.style.filter  = 'blur(0px)';
+        }, 300);
+    });
 
-heroImg.addEventListener('mouseenter', () => {
-    heroImg.style.opacity = '0';
-    heroImg.style.filter  = 'blur(8px)';
-
-    setTimeout(() => {
-        heroImg.src = hoverSrc;
-        heroImg.style.opacity = '1';
-        heroImg.style.filter  = 'blur(0px)';
-    }, 300); // match your transition duration
-});
-
-heroImg.addEventListener('mouseleave', () => {
-    heroImg.style.opacity = '0';
-    heroImg.style.filter  = 'blur(8px)';
-
-    setTimeout(() => {
-        heroImg.src = defaultSrc;
-        heroImg.style.opacity = '1';
-        heroImg.style.filter  = 'blur(0px)';
-    }, 300);
-});
+    heroImg.addEventListener('mouseleave', () => {
+        heroImg.style.opacity = '0';
+        heroImg.style.filter  = 'blur(8px)';
+        setTimeout(() => {
+            heroImg.src = defaultSrc;
+            heroImg.style.opacity = '1';
+            heroImg.style.filter  = 'blur(0px)';
+        }, 300);
+    });
+}
